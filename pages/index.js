@@ -124,7 +124,6 @@ export default function Home() {
               <>
               <div className="flex flex-row space-x-4 max-w-md mx-auto mt-8 mb-0 justify-between px-6">
                 <li
-                  className=""
                   key={todoItems.indexOf(task)}
                 >
                   {task}
