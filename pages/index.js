@@ -64,11 +64,13 @@ export default function Home() {
 
     if (item === "") {
       setShowEmptyPopUp(true);
+      setItem("");
     }
 
     if (todoItems.includes(item)) {
       console.log("Item exists")
       setShowSameItemPopUp(true);
+      setItem("");
     }
 
     if (item != "" && !todoItems.includes(item) && clicked === true) {
@@ -96,7 +98,7 @@ export default function Home() {
           <h1 className="text-2xl font-bold sm:text-3xl">To-do App</h1>
         </div>
 
-        <form className="max-w-md mx-auto mt-8 mb-0 space-y-4">
+        <form className="max-w-md mx-auto mt-8 mb-0 space-y-4 px-5">
           <div>
             <div className="relative">
               <input
@@ -116,16 +118,20 @@ export default function Home() {
             </div>
           </div>
         </form>
-        <ul className="text-center pt-4">
+        <ul className="">
           {todoItems.map((task) => {
             return (
-              <li
-                className="cursor-pointer hover:font-bold"
-                onClick={() => handleSubmit(task)}
-                key={todoItems.indexOf(task)}
-              >
-                {task}
-              </li>
+              <>
+              <div className="flex flex-row space-x-4 max-w-md mx-auto mt-8 mb-0 justify-between px-6">
+                <li
+                  className=""
+                  key={todoItems.indexOf(task)}
+                >
+                  {task}
+                </li>
+                <h1 className="cursor-pointer hover:font-bold" onClick={() => handleSubmit(task)}>X</h1>
+              </div>
+              </>
             );
           })}
         </ul>
